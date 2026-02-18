@@ -1,4 +1,4 @@
-# MediVue Backend Assessment: Task Management API
+# Task Manager API
 
 A FastAPI-based Task Management API with CRUD operations, tag support, filtering, pagination, validation, structured errors, tests, and Dockerized runtime.
 
@@ -23,7 +23,7 @@ A FastAPI-based Task Management API with CRUD operations, tag support, filtering
 - Structured error responses
 - FastAPI OpenAPI docs at `/docs`
 
-## Error Shape
+## Error Handling
 All API errors follow this structure:
 
 ```json
@@ -100,17 +100,14 @@ Used normalized many-to-many tables (`tasks`, `tags`, `task_tags`).
 - Portable across DBs
 - More explicit query semantics
 
-Trade-off:
-- More joins compared to array/json storage
-- Slightly more query complexity
 
 ### Delete Strategy: Soft Delete
 `DELETE /tasks/{id}` marks the task as deleted by setting `deleted_at`.
 
-Why:
-- Preserves data for audit and recovery use cases
-- Keeps API behavior simple by excluding deleted tasks from ureads
-- Supports future restore workflows without schema redesign
+Because :
+- It preserves data for audit and recovery use cases
+- It Keeps API behaviour simple by excluding deleted tasks from ureads
+- And supports future restore workflows without schema redesign
 
 ### Indexing
 Indexes are applied to frequently filtered fields:
