@@ -1,0 +1,12 @@
+.git
+.gitignore
+__pycache__
+.pytest_cache
+*.pyc
+*.pyo
+*.pyd
+*.db
+venv
+.venv
+plan.md
+MediVue Assessment.pdf
